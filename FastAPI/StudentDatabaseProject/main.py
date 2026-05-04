@@ -18,7 +18,7 @@ def get_db():
 # Create Student
 @app.post("/students/")
 def create_student(student: schemas.StudentCreate, db: Session = Depends(get_db)):
-    new_student = models.Student(**student.dict())
+    new_student = models.Student(**student.model_dump())
     db.add(new_student)
     db.commit()
     db.refresh(new_student)

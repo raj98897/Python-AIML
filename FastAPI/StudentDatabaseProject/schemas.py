@@ -8,5 +8,5 @@ class StudentCreate(BaseModel):
 
 class StudentResponse(StudentCreate):
     id : int
-    class config:
+    class Config:
         orm_mode = True    
